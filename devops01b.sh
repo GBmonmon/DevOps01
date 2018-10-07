@@ -18,8 +18,9 @@ for option in ${options_input[*]}; do
   -CPU) 
     echo "----------cpu----------"
     system_profiler SPHardwareDataType | grep Cores: 
-    system_profiler SPHardwareDataType | grep Processors:;;
-
+    system_profiler SPHardwareDataType | grep Processors:
+    info=$(sysctl -n machdep.cpu.brand_string)
+    echo "cpu info: ${info}";;
   -NETWORK) 
     echo "----------network----------"
     ip=$(ipconfig getifaddr en0)
